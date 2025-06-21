@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Chen - Quality Guardian Persona Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Tailwind's gray-50 */
+        }
+        /* Simple animation for tab content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .content-section.active {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="dashboard container mx-auto p-4 md:p-8">
+
+        <!-- Header Section -->
+        <header class="header bg-gradient-to-tr from-indigo-600 to-purple-700 text-white p-8 rounded-2xl shadow-lg mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Sarah Chen - The Quality Guardian</h1>
+            <p class="subtitle text-lg opacity-90 mt-2">Supplier Quality Executive Persona | Medical Device Manufacturing</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Profile Card -->
+            <aside class="lg:col-span-1 space-y-8">
+                <div class="profile-card bg-white p-6 rounded-2xl shadow-md text-center">
+                    <div class="avatar w-28 h-28 mx-auto bg-gradient-to-tr from-indigo-600 to-purple-700 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-4 ring-4 ring-white shadow-md">SC</div>
+                    <h2 class="text-2xl font-bold text-slate-900">Sarah Chen</h2>
+                    <p class="title text-indigo-500 font-medium mb-6">VP of Supplier Quality</p>
+                    
+                    <div class="profile-stats grid grid-cols-2 gap-4 text-center my-6">
+                        <div class="stat bg-slate-100 p-3 rounded-lg">
+                            <div class="stat-value text-xl font-bold text-indigo-600">18</div>
+                            <div class="stat-label text-xs text-slate-500 uppercase tracking-wider">Years Exp.</div>
+                        </div>
+                        <div class="stat bg-slate-100 p-3 rounded-lg">
+                            <div class="stat-value text-xl font-bold text-indigo-600">25</div>
+                            <div class="stat-label text-xs text-slate-500 uppercase tracking-wider">Team Size</div>
+                        </div>
+                        <div class="stat bg-slate-100 p-3 rounded-lg">
+                            <div class="stat-value text-xl font-bold text-indigo-600">$180K</div>
+                            <div class="stat-label text-xs text-slate-500 uppercase tracking-wider">Avg Salary</div>
+                        </div>
+                         <div class="stat bg-slate-100 p-3 rounded-lg">
+                            <div class="stat-value text-xl font-bold text-indigo-600">42</div>
+                            <div class="stat-label text-xs text-slate-500 uppercase tracking-wider">Age</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-left space-y-3 mt-6 border-t pt-6">
+                        <p><strong>Reports to:</strong> <span class="text-slate-600">COO</span></p>
+                        <p><strong>Education:</strong> <span class="text-slate-600">MS Engineering, MBA</span></p>
+                        <p><strong>Certifications:</strong> <span class="text-slate-600">Six Sigma Black Belt, ASQ CQE</span></p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Tabbed Content -->
+            <section class="lg:col-span-2">
+                <div class="quick-facts bg-white p-6 sm:p-8 rounded-2xl shadow-md">
+                    <div class="tabs flex flex-wrap gap-2 border-b border-slate-200 pb-4 mb-6">
+                        <button class="tab active" onclick="showTab(this, 'overview')">Overview</button>
+                        <button class="tab" onclick="showTab(this, 'pain-points')">Pain Points</button>
+                        <button class="tab" onclick="showTab(this, 'goals')">Goals & KPIs</button>
+                        <button class="tab" onclick="showTab(this, 'buying')">Buying Process</button>
+                        <button class="tab" onclick="showTab(this, 'objections')">Objections</button>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <div class="tab-content space-y-6">
+                        <div id="overview" class="content-section active">
+                            <h3 class="text-xl font-bold mb-4">A Day in Sarah's Life</h3>
+                            <p class="text-slate-600 mb-6">Sarah starts her day at 6:30 AM reviewing overnight quality alerts from global suppliers. She manages supplier quality programs across three continents for a $2B medical device manufacturer.</p>
+                            
+                            <h4 class="font-semibold mb-2">Key Responsibilities:</h4>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 mb-6">
+                                <li>Oversees supplier quality programs and audit compliance</li>
+                                <li>Manages regulatory readiness across multiple jurisdictions</li>
+                                <li>Leads quality crisis response and incident containment</li>
+                                <li>Reports quality metrics and ROI to executive leadership</li>
+                                <li>Drives continuous improvement and process harmonization</li>
+                            </ul>
+
+                            <h4 class="font-semibold mb-2">Technology Stack:</h4>
+                            <p class="text-slate-600">Regular user of QMS platforms (MasterControl, Sparta), ERP systems (SAP), and actively evaluating cloud-based supplier quality solutions like STEPQ.</p>
+                        </div>
+
+                        <div id="pain-points" class="content-section hidden">
+                            <h3 class="text-xl font-bold mb-4">Critical Pain Points</h3>
+                            <div class="space-y-4">
+                                <div class="pain-point bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg"><strong class="text-red-700 block font-semibold">🔥 Bandwidth Crisis:</strong> Limited internal resources for global deployments, quality events, and supplier network expansion.</div>
+                                <div class="pain-point bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg"><strong class="text-red-700 block font-semibold">🔥 Harmonization Complexity:</strong> Struggling to standardize processes across multiple sites with legacy systems.</div>
+                                <div class="pain-point bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg"><strong class="text-red-700 block font-semibold">🔥 Demonstrating Value:</strong> Difficulty quantifying quality's financial impact and pressure to show ROI.</div>
+                                <div class="pain-point bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg"><strong class="text-red-700 block font-semibold">🔥 Technology Gaps:</strong> Legacy systems lack real-time visibility and predictive insights.</div>
+                                <div class="pain-point bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg"><strong class="text-red-700 block font-semibold">🔥 Personal Accountability:</strong> High stress from personal liability and 24/7 crisis responsibility.</div>
+                            </div>
+                        </div>
+
+                        <div id="goals" class="content-section hidden">
+                            <h3 class="text-xl font-bold mb-4">Goals & Success Metrics</h3>
+                             <h4 class="font-semibold mb-3">Short-Term Goals (Current Year)</h4>
+                            <div class="space-y-4 mb-6">
+                                <div class="goal-item bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg"><strong class="text-green-800 block font-semibold">✓ Zero Critical Findings:</strong> Achieve zero critical audit findings across all facilities.</div>
+                                <div class="goal-item bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg"><strong class="text-green-800 block font-semibold">✓ 30% Reduction:</strong> Reduce supplier non-conformance incidents by 30%.</div>
+                                <div class="goal-item bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg"><strong class="text-green-800 block font-semibold">✓ 3:1 ROI:</strong> Demonstrate 3:1 ROI on quality technology investments.</div>
+                            </div>
+                            <h4 class="font-semibold mb-2">Key Performance Indicators</h4>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                <li>Audit readiness/compliance metrics</li>
+                                <li>Supplier defect rates (PPM)</li>
+                                <li>Cost of poor quality (COPQ)</li>
+                                <li>Incident resolution time & severity</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="buying" class="content-section hidden">
+                            <h3 class="text-xl font-bold mb-4">Buying Process & Decision Factors</h3>
+                             <h4 class="font-semibold mb-3">Key Buying Factors</h4>
+                            <div class="space-y-4 mb-6">
+                                <div class="buying-factor bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg"><strong class="text-blue-800 block font-semibold">🎯 Compliance Assurance:</strong> Solution must ensure regulatory readiness (FDA, EASA, ISO).</div>
+                                <div class="buying-factor bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg"><strong class="text-blue-800 block font-semibold">🎯 Proven Industry Expertise:</strong> Vendor must show deep knowledge of regulated industries.</div>
+                                <div class="buying-factor bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg"><strong class="text-blue-800 block font-semibold">🎯 Integration Capability:</strong> Seamless connection with existing ERP/QMS is a must.</div>
+                                <div class="buying-factor bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg"><strong class="text-blue-800 block font-semibold">🎯 Measurable ROI:</strong> Clear financial impact must be demonstrated within 12-18 months.</div>
+                            </div>
+                            <h4 class="font-semibold mb-2">Decision Process</h4>
+                            <p class="text-slate-600">Sarah leads a committee-based evaluation (Quality, Supply Chain, IT, Finance) with a 6-12 month timeline, typically involving an RFP/RFI process and pilot requirements.</p>
+                        </div>
+                        
+                        <div id="objections" class="content-section hidden">
+                            <h3 class="text-xl font-bold mb-4">Common Objections to Address</h3>
+                            <div class="space-y-4">
+                               <div class="objection bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg"><strong class="text-amber-800 block font-semibold">⚠️ Budget Concerns:</strong> Total Cost of Ownership (TCO) benefits need to be clearly shown.</div>
+                               <div class="objection bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg"><strong class="text-amber-800 block font-semibold">⚠️ Security & Compliance:</strong> Must prove cloud solutions meet strict data security standards.</div>
+                               <div class="objection bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg"><strong class="text-amber-800 block font-semibold">⚠️ Change Disruption:</strong> Fear of disrupting established workflows and supplier relationships.</div>
+                               <div class="objection bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg"><strong class="text-amber-800 block font-semibold">⚠️ Managed Service Skepticism:</strong> Uncertainty about relying on external teams for critical functions.</div>
+                               <div class="objection bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg"><strong class="text-amber-800 block font-semibold">⚠️ IT Integration:</strong> IT department resistance to new platform integration and support.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Bottom Section: Sales Strategy & Journey -->
+        <footer class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div class="sales-tips bg-gradient-to-tr from-green-50 to-teal-50 p-6 sm:p-8 rounded-2xl shadow-md">
+                <h3 class="text-xl font-bold mb-6 text-green-800">🎯 Sales Engagement Strategy</h3>
+                <div class="space-y-4">
+                    <div class="tip bg-white p-4 rounded-lg shadow-sm flex gap-4 items-start"><div class="tip-number flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">1</div><div><strong class="font-semibold">Lead with Compliance & Risk:</strong> Focus on audit readiness first, then cost savings.</div></div>
+                    <div class="tip bg-white p-4 rounded-lg shadow-sm flex gap-4 items-start"><div class="tip-number flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">2</div><div><strong class="font-semibold">Engage Stakeholders Early:</strong> Involve IT, Finance, and Operations from the start.</div></div>
+                    <div class="tip bg-white p-4 rounded-lg shadow-sm flex gap-4 items-start"><div class="tip-number flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">3</div><div><strong class="font-semibold">Provide Peer References:</strong> Share case studies from similar regulated industries.</div></div>
+                    <div class="tip bg-white p-4 rounded-lg shadow-sm flex gap-4 items-start"><div class="tip-number flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">4</div><div><strong class="font-semibold">Offer Pilot Programs:</strong> Reduce perceived risk with flexible pilot options to validate ROI.</div></div>
+                    <div class="tip bg-white p-4 rounded-lg shadow-sm flex gap-4 items-start"><div class="tip-number flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">5</div><div><strong class="font-semibold">Demonstrate Industry Knowledge:</strong> Speak her language (FDA 21 CFR, ISO 13485, COPQ).</div></div>
+                </div>
+            </div>
+
+            <div class="journey-map bg-white p-6 sm:p-8 rounded-2xl shadow-md">
+                <h3 class="text-xl font-bold mb-8">Typical Buying Journey Timeline</h3>
+                <div class="relative">
+                    <!-- The connecting line -->
+                    <div class="absolute left-1/2 -translate-x-1/2 top-4 h-full border-l-2 border-dashed border-slate-300 hidden sm:block"></div>
+                    <div class="space-y-12 sm:space-y-16">
+                        <!-- Stage 1 -->
+                        <div class="stage relative flex items-center gap-4"><div class="stage-circle z-10 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div><div class="w-full"><div class="stage-title font-semibold">Awareness <span class="font-normal text-slate-500">(1-2 mo)</span></div><p class="text-sm text-slate-600">Identifies need via peer networks, conferences.</p></div></div>
+                        <!-- Stage 2 -->
+                        <div class="stage relative flex items-center gap-4"><div class="stage-circle z-10 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div><div class="w-full"><div class="stage-title font-semibold">Research <span class="font-normal text-slate-500">(2-3 mo)</span></div><p class="text-sm text-slate-600">Detailed vendor evaluation, RFP process.</p></div></div>
+                        <!-- Stage 3 -->
+                        <div class="stage relative flex items-center gap-4"><div class="stage-circle z-10 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div><div class="w-full"><div class="stage-title font-semibold">Evaluation <span class="font-normal text-slate-500">(3-4 mo)</span></div><p class="text-sm text-slate-600">Pilot programs, stakeholder alignment.</p></div></div>
+                        <!-- Stage 4 -->
+                        <div class="stage relative flex items-center gap-4"><div class="stage-circle z-10 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div><div class="w-full"><div class="stage-title font-semibold">Decision <span class="font-normal text-slate-500">(1-2 mo)</span></div><p class="text-sm text-slate-600">Executive approval, contract negotiation.</p></div></div>
+                        <!-- Stage 5 -->
+                        <div class="stage relative flex items-center gap-4"><div class="stage-circle z-10 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div><div class="w-full"><div class="stage-title font-semibold">Success <span class="font-normal text-slate-500">(Ongoing)</span></div><p class="text-sm text-slate-600">Implementation, QBRs, expansion.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    
+    <script>
+        // Set the active tab styles and show its content
+        function showTab(tabElement, tabName) {
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active', 'bg-indigo-600', 'text-white');
+                tab.classList.add('bg-slate-200', 'text-slate-600');
+            });
+            
+            // Activate the clicked tab
+            tabElement.classList.add('active', 'bg-indigo-600', 'text-white');
+            tabElement.classList.remove('bg-slate-200', 'text-slate-600');
+            
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('active');
+            });
+            
+            // Show the selected content section
+            const activeSection = document.getElementById(tabName);
+            activeSection.classList.remove('hidden');
+            activeSection.classList.add('active');
+        }
+
+        // Initialize the first tab as active on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply Tailwind classes for tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.classList.contains('active')) {
+                    tab.classList.add('bg-indigo-600', 'text-white');
+                } else {
+                    tab.classList.add('bg-slate-200', 'text-slate-600', 'hover:bg-slate-300');
+                }
+                tab.classList.add('px-4', 'py-2', 'rounded-md', 'font-semibold', 'text-sm', 'transition-colors', 'duration-200');
+            });
+        });
+    </script>
+</body>
+</html>
