@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying Persona - Sarah Chen</title>
+    <meta name="description" content="Buying Persona details for Sarah Chen, VP of Supplier Quality.">
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Tailwind's slate-50 */
+        }
+        
+        /* Styles for Persona Page Elements */
+        .persona-header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); /* Indigo to Violet */
+        }
+        .persona-tab.active {
+            background-color: #6366f1; /* Indigo-500 */
+            color: white;
+        }
+        .persona-stat-value {
+            color: #6366f1; /* Indigo-500 */
+        }
+        .pain-point {
+            background-color: #fee2e2; /* Red-100 */
+            border-left: 4px solid #ef4444; /* Red-500 */
+        }
+        .pain-point strong {
+            color: #b91c1c; /* Red-800 */
+        }
+        .goal-item {
+            background-color: #dcfce7; /* Green-100 */
+            border-left: 4px solid #22c55e; /* Green-500 */
+        }
+        .goal-item strong {
+            color: #15803d; /* Green-700 */
+        }
+        .buying-factor {
+            background-color: #e0f2fe; /* Sky-100 */
+            border-left: 4px solid #38bdf8; /* Sky-400 */
+        }
+        .buying-factor strong {
+            color: #0369a1; /* Sky-700 */
+        }
+        .objection {
+            background-color: #fef3c7; /* Amber-100 */
+            border-left: 4px solid #f59e0b; /* Amber-500 */
+        }
+        .objection strong {
+            color: #b45309; /* Amber-700 */
+        }
+        .sales-tips {
+            background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%); /* Green gradients */
+        }
+        .sales-tips h3 {
+            color: #15803d; /* Green-700 */
+        }
+        .tip-number {
+            background-color: #22c55e; /* Green-500 */
+        }
+        .stage-circle {
+            background-color: #6366f1; /* Indigo-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+            <!-- Back Button -->
+            <a href="./index.html" class="mb-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                &larr; Back to Hub
+            </a>
+
+            <div class="persona-header text-white p-8 rounded-xl mb-8 shadow-lg">
+                <h1 class="text-4xl font-bold mb-2">Sarah Chen - The Quality Guardian</h1>
+                <div class="text-xl opacity-90">Supplier Quality Executive Persona | Medical Device Manufacturing</div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <div class="bg-white rounded-xl p-8 shadow-md lg:col-span-1 text-center">
+                    <div class="w-28 h-28 mx-auto mb-4 rounded-full flex items-center justify-center text-4xl font-bold text-white" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">SC</div>
+                    <h2 class="text-2xl font-bold text-slate-900">Sarah Chen</h2>
+                    <div class="text-slate-500 text-lg mb-6">VP of Supplier Quality</div>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-slate-100 p-3 rounded-lg"><div class="persona-stat-value text-2xl font-bold">18</div><div class="text-sm text-slate-500">Years Exp.</div></div>
+                        <div class="bg-slate-100 p-3 rounded-lg"><div class="persona-stat-value text-2xl font-bold">25</div><div class="text-sm text-slate-500">Team Size</div></div>
+                        <div class="bg-slate-100 p-3 rounded-lg"><div class="persona-stat-value text-2xl font-bold">$180K</div><div class="text-sm text-slate-500">Avg Salary</div></div>
+                        <div class="bg-slate-100 p-3 rounded-lg"><div class="persona-stat-value text-2xl font-bold">42</div><div class="text-sm text-slate-500">Age</div></div>
+                    </div>
+                    <div class="mt-6 text-left space-y-2 text-slate-600">
+                        <p><strong>Reports to:</strong> COO</p><p><strong>Education:</strong> MS Engineering, MBA</p><p><strong>Certifications:</strong> Six Sigma Black Belt, ASQ CQE</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-md lg:col-span-2">
+                    <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <button class="persona-tab text-sm sm:text-base px-4 py-2 rounded-md font-medium transition-colors duration-200 active" onclick="showPersonaTab('overview')">Overview</button>
+                        <button class="persona-tab text-sm sm:text-base px-4 py-2 rounded-md font-medium transition-colors duration-200" onclick="showPersonaTab('pain-points')">Pain Points</button>
+                        <button class="persona-tab text-sm sm:text-base px-4 py-2 rounded-md font-medium transition-colors duration-200" onclick="showPersonaTab('goals')">Goals & KPIs</button>
+                        <button class="persona-tab text-sm sm:text-base px-4 py-2 rounded-md font-medium transition-colors duration-200" onclick="showPersonaTab('buying')">Buying Process</button>
+                        <button class="persona-tab text-sm sm:text-base px-4 py-2 rounded-md font-medium transition-colors duration-200" onclick="showPersonaTab('objections')">Objections</button>
+                    </div>
+                    
+                    <div id="overview-tab" class="persona-content-section active">
+                            <h3 class="font-bold text-xl text-slate-800 mb-4">A Day in Sarah's Life</h3>
+                        <p class="mb-4">Sarah starts her day at 6:30 AM reviewing overnight quality alerts from global suppliers. She manages supplier quality programs across three continents for a $2B medical device manufacturer.</p>
+                        <h4 class="font-semibold text-lg text-slate-800 mt-6 mb-3">Key Responsibilities:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-slate-600">
+                            <li>Oversees supplier quality programs and audit compliance</li><li>Manages regulatory readiness across multiple jurisdictions</li><li>Leads quality crisis response and incident containment</li><li>Reports quality metrics and ROI to executive leadership</li><li>Drives continuous improvement and process harmonization</li>
+                        </ul>
+                        <h4 class="font-semibold text-lg text-slate-800 mt-6 mb-3">Technology Stack:</h4>
+                        <p class="text-slate-600">Regular user of QMS platforms (MasterControl, Sparta), ERP systems (SAP), and actively evaluating cloud-based supplier quality solutions like STEPQ.</p>
+                    </div>
+                    
+                    <div id="pain-points-tab" class="persona-content-section hidden"><h3 class="font-bold text-xl text-slate-800 mb-4">Critical Pain Points</h3><div class="space-y-3"><div class="pain-point p-4 rounded-md"><strong>🔥 Bandwidth Crisis:</strong> Limited internal resources to handle global deployments, urgent quality events, and expanding supplier networks simultaneously.</div><div class="pain-point p-4 rounded-md"><strong>🔥 Harmonization Complexity:</strong> Struggling to standardize processes across multiple sites, each with legacy systems and local compliance requirements.</div><div class="pain-point p-4 rounded-md"><strong>🔥 Demonstrating Value:</strong> Difficulty quantifying quality's financial impact beyond cost avoidance - pressure to show ROI.</div><div class="pain-point p-4 rounded-md"><strong>🔥 Technology Gaps:</strong> Legacy systems don't provide real-time visibility or predictive insights needed for proactive management.</div><div class="pain-point p-4 rounded-md"><strong>🔥 Personal Accountability:</strong> High stress from personal liability for quality failures, 24/7 responsibility during crises.</div></div></div>
+                    <div id="goals-tab" class="persona-content-section hidden"><h3 class="font-bold text-xl text-slate-800 mb-4">Goals & Success Metrics</h3><h4 class="font-semibold text-lg text-slate-800 mb-3">Short-Term Goals (Current Year)</h4><div class="space-y-3"><div class="goal-item p-4 rounded-md"><strong>✓ Zero Critical Findings:</strong> Achieve zero critical audit findings across all facilities.</div><div class="goal-item p-4 rounded-md"><strong>✓ 30% Reduction:</strong> Reduce supplier non-conformance incidents by 30%.</div><div class="goal-item p-4 rounded-md"><strong>✓ 3:1 ROI:</strong> Demonstrate 3:1 ROI on quality technology investments.</div></div><h4 class="font-semibold text-lg text-slate-800 mt-6 mb-3">Key Performance Indicators</h4><ul class="list-disc list-inside space-y-1 text-slate-600"><li>Audit readiness/compliance metrics</li><li>Supplier defect rates (PPM)</li><li>Cost of poor quality (COPQ)</li><li>Incident resolution time</li><li>Number and severity of regulatory findings</li></ul></div>
+                    <div id="buying-tab" class="persona-content-section hidden"><h3 class="font-bold text-xl text-slate-800 mb-4">Buying Process & Decision Factors</h3><h4 class="font-semibold text-lg text-slate-800 mb-3">Key Buying Factors</h4><div class="space-y-3"><div class="buying-factor p-4 rounded-md"><strong>🎯 Compliance Assurance:</strong> Solution must ensure regulatory readiness across all jurisdictions (FDA, EASA, ISO).</div><div class="buying-factor p-4 rounded-md"><strong>🎯 Proven Industry Expertise:</strong> Vendor must demonstrate deep knowledge of regulated industries and similar implementations.</div><div class="buying-factor p-4 rounded-md"><strong>🎯 Integration Capability:</strong> Seamless connection with existing ERP and QMS systems is non-negotiable.</div><div class="buying-factor p-4 rounded-md"><strong>🎯 Measurable ROI:</strong> Clear financial impact must be demonstrated within 12-18 months.</div></div><h4 class="font-semibold text-lg text-slate-800 mt-6 mb-3">Decision Process</h4><p class="text-slate-600">Sarah leads a committee-based evaluation involving Quality, Supply Chain, IT, and Finance. Typical timeline: 6-12 months with RFP/RFI process and pilot requirements.</p></div>
+                    <div id="objections-tab" class="persona-content-section hidden"><h3 class="font-bold text-xl text-slate-800 mb-4">Common Objections to Address</h3><div class="space-y-3"><div class="objection p-4 rounded-md"><strong>⚠️ Budget Concerns:</strong> Worried about ongoing service costs vs. one-time software purchase. Need to show total cost of ownership benefits.</div><div class="objection p-4 rounded-md"><strong>⚠️ Security & Compliance:</strong> Concerns about cloud-based solutions meeting data security and regulatory requirements.</div><div class="objection p-4 rounded-md"><strong>⚠️ Change Disruption:</strong> Fear of disrupting established supplier relationships and internal processes.</div><div class="objection p-4 rounded-md"><strong>⚠️ Managed Service Skepticism:</strong> Uncertainty about relying on external teams for critical quality functions.</div><div class="objection p-4 rounded-md"><strong>⚠️ IT Integration:</strong> IT department resistance to new platform integration and support requirements.</div></div></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500">
+            <p>&copy; 2025 Revenue Reimagined. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- SCRIPT FOR PERSONA PAGE TABS ---
+        function showPersonaTab(tabName) {
+            const tabId = tabName + '-tab';
+            // Hide all content sections
+            document.querySelectorAll('.persona-content-section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.persona-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content section
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

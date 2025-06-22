@@ -3,783 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarah Chen - Quality Guardian Persona Dashboard</title>
-    <!-- Tailwind CSS -->
+    <title>GTM Foundations</title>
+    <meta name="description" content="Central hub for accessing Go-to-Market (GTM) foundation documents, including Ideal Customer Profile (ICP), Buying Persona (BP), and Value Proposition (VP).">
+    
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* Use Inter as the default font */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 100vh;
         }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .gradient-border {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 2px;
-            border-radius: 16px;
-        }
-        
-        .gradient-border-inner {
-            background: white;
-            border-radius: 14px;
-        }
-        
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-        
-        @keyframes slideIn {
-            from { 
-                opacity: 0; 
-                transform: translateX(-20px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateX(0); 
-            }
-        }
-        
-        .content-section.active {
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .animate-slide-in {
-            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .tab {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .tab:hover::before {
-            left: 100%;
-        }
-        
-        .stat-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .floating-card {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .section-divider {
-            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-            height: 1px;
-            margin: 2rem 0;
+        /* Custom styles for a subtle background pattern */
+        .pattern-bg {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#dbeafe 1px, transparent 1px);
+            background-size: 1.5rem 1.5rem;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800">
+<body class="pattern-bg text-slate-800">
 
-    <div class="dashboard container mx-auto p-4 md:p-8 max-w-7xl">
-
+    <div class="flex flex-col min-h-screen">
         <!-- Header Section -->
-        <header class="header relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 text-white p-8 md:p-12 rounded-3xl shadow-2xl mb-12 animate-slide-in">
-            <div class="absolute inset-0 bg-black opacity-10"></div>
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-48 translate-x-48"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full translate-y-32 -translate-x-32"></div>
-            <div class="relative z-10">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center">
-                        <i data-lucide="shield-check" class="w-8 h-8"></i>
-                    </div>
+        <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center space-x-4">
+                    <!-- Corrected image source to an embedded Base64 string -->
+                    <img 
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADcCAMAAAAshD+zAAAAQlBMVEX////AAD/U1P/qan/f3//vr7/aGj/ycn/tLT/LS3/o6P/WVn/ICD/RUX/dXX/paX/n5//4+P/uro/Pz//w8P/ISGhSkQJAAAAAXRSTlMAQObYZgAAA+RJREFUeAHt3UlyG0cUANCxIAgIywuI/v+/7SSQ9gB1FVRdVaWaO+ecmxSnC92pSV3/k+T5/PM8L+v1en0d9+l8/j3f+7qv63q9Xv9a9+/Lff/9ve+P+L7d7/e7t+/P/7v/X4fn8+f3/X4/n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fzt+b+/n+8T+fzz/e83+/3+/2+v//b/d+f5+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fzt+f3+31/fn7+7/d7fn5+P5/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8/vbc3//8/v39/e/3++fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+b/5/w9/v7+/vz//fv/3+3s+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+nz/b/P359/v7++/3+/v8/Pz9/T6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5/P8P3G1kYh86B4gAAAAASUVORK5CYII=" 
+                        alt="SQA Services Logo" 
+                        class="h-12 w-auto"
+                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/1e40af/ffffff?text=SQA';">
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Sarah Chen</h1>
-                        <p class="text-xl opacity-90 font-light">The Quality Guardian</p>
+                        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">GTM Foundations</h1>
+                        <p class="mt-1 text-sm text-slate-600">Your central access point for Go-to-Market strategies.</p>
                     </div>
                 </div>
-                <p class="subtitle text-lg opacity-80 max-w-2xl leading-relaxed">
-                    Supplier Quality Executive Persona | Medical Device Manufacturing Excellence
-                </p>
             </div>
         </header>
 
-        <main class="grid grid-cols-1 xl:grid-cols-4 gap-8">
-            
-            <!-- Left Column: Profile Card -->
-            <aside class="xl:col-span-1 space-y-8">
-                <div class="profile-card glass-effect p-8 rounded-3xl shadow-xl floating-card">
-                    <div class="text-center mb-8">
-                        <div class="gradient-border mx-auto mb-6 w-fit">
-                            <div class="gradient-border-inner p-6">
-                                <div class="avatar w-24 h-24 mx-auto bg-gradient-to-tr from-indigo-600 to-purple-700 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                                    SC
-                                </div>
-                            </div>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-900 mb-2">Sarah Chen</h2>
-                        <p class="title text-indigo-600 font-semibold text-lg mb-1">VP of Supplier Quality</p>
-                        <p class="text-slate-500 text-sm">Medical Device Manufacturing</p>
-                    </div>
-                    
-                    <div class="profile-stats grid grid-cols-2 gap-4 mb-8">
-                        <div class="stat-card bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-2xl text-center border border-indigo-200">
-                            <div class="stat-value text-2xl font-bold text-indigo-700 mb-1">18</div>
-                            <div class="stat-label text-xs text-indigo-600 uppercase tracking-wider font-medium">Years Exp.</div>
-                        </div>
-                        <div class="stat-card bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-2xl text-center border border-purple-200">
-                            <div class="stat-value text-2xl font-bold text-purple-700 mb-1">25</div>
-                            <div class="stat-label text-xs text-purple-600 uppercase tracking-wider font-medium">Team Size</div>
-                        </div>
-                        <div class="stat-card bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 rounded-2xl text-center border border-emerald-200">
-                            <div class="stat-value text-2xl font-bold text-emerald-700 mb-1">$180K</div>
-                            <div class="stat-label text-xs text-emerald-600 uppercase tracking-wider font-medium">Avg Salary</div>
-                        </div>
-                        <div class="stat-card bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-2xl text-center border border-amber-200">
-                            <div class="stat-value text-2xl font-bold text-amber-700 mb-1">42</div>
-                            <div class="stat-label text-xs text-amber-600 uppercase tracking-wider font-medium">Age</div>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-4 pt-6 border-t border-slate-200">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="user-check" class="w-5 h-5 text-slate-400"></i>
-                            <div>
-                                <p class="font-semibold text-sm text-slate-700">Reports to</p>
-                                <p class="text-slate-600">Chief Operating Officer</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="graduation-cap" class="w-5 h-5 text-slate-400"></i>
-                            <div>
-                                <p class="font-semibold text-sm text-slate-700">Education</p>
-                                <p class="text-slate-600">MS Engineering, MBA</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="award" class="w-5 h-5 text-slate-400"></i>
-                            <div>
-                                <p class="font-semibold text-sm text-slate-700">Certifications</p>
-                                <p class="text-slate-600">Six Sigma Black Belt, ASQ CQE</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- Right Column: Tabbed Content -->
-            <section class="xl:col-span-3">
-                <div class="quick-facts glass-effect p-8 md:p-10 rounded-3xl shadow-xl floating-card">
-                    <div class="tabs flex flex-wrap gap-3 border-b border-slate-200 pb-6 mb-8">
-                        <button class="tab active" onclick="showTab(this, 'overview')">
-                            <i data-lucide="user" class="w-4 h-4 mr-2"></i>Overview
-                        </button>
-                        <button class="tab" onclick="showTab(this, 'pain-points')">
-                            <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>Pain Points
-                        </button>
-                        <button class="tab" onclick="showTab(this, 'goals')">
-                            <i data-lucide="target" class="w-4 h-4 mr-2"></i>Goals & KPIs
-                        </button>
-                        <button class="tab" onclick="showTab(this, 'buying')">
-                            <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i>Buying Process
-                        </button>
-                        <button class="tab" onclick="showTab(this, 'objections')">
-                            <i data-lucide="help-circle" class="w-4 h-4 mr-2"></i>Objections
-                        </button>
-                    </div>
-                    
-                    <!-- Tab Content -->
-                    <div class="tab-content">
-                        <div id="overview" class="content-section active space-y-8">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center">
-                                    <i data-lucide="clock" class="w-6 h-6 text-indigo-600"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-slate-900">A Day in Sarah's Life</h3>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-2xl border border-indigo-100">
-                                <p class="text-slate-700 leading-relaxed text-lg">
-                                    Sarah starts her day at 6:30 AM reviewing overnight quality alerts from global suppliers. She manages supplier quality programs across three continents for a $2B medical device manufacturer, ensuring compliance and excellence at every touchpoint.
-                                </p>
-                            </div>
-                            
-                            <div class="grid md:grid-cols-2 gap-8">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-4">
-                                        <i data-lucide="briefcase" class="w-5 h-5 text-indigo-600"></i>
-                                        <h4 class="font-bold text-lg text-slate-900">Key Responsibilities</h4>
-                                    </div>
-                                    <ul class="space-y-3">
-                                        <li class="flex items-start gap-3">
-                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span class="text-slate-600">Oversees supplier quality programs and audit compliance</span>
-                                        </li>
-                                        <li class="flex items-start gap-3">
-                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span class="text-slate-600">Manages regulatory readiness across multiple jurisdictions</span>
-                                        </li>
-                                        <li class="flex items-start gap-3">
-                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span class="text-slate-600">Leads quality crisis response and incident containment</span>
-                                        </li>
-                                        <li class="flex items-start gap-3">
-                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span class="text-slate-600">Reports quality metrics and ROI to executive leadership</span>
-                                        </li>
-                                        <li class="flex items-start gap-3">
-                                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span class="text-slate-600">Drives continuous improvement and process harmonization</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                <div>
-                                    <div class="flex items-center gap-3 mb-4">
-                                        <i data-lucide="monitor" class="w-5 h-5 text-purple-600"></i>
-                                        <h4 class="font-bold text-lg text-slate-900">Technology Stack</h4>
-                                    </div>
-                                    <div class="space-y-3">
-                                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                            <p class="font-semibold text-slate-800 mb-1">QMS Platforms</p>
-                                            <p class="text-slate-600 text-sm">MasterControl, Sparta Systems</p>
-                                        </div>
-                                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                            <p class="font-semibold text-slate-800 mb-1">ERP Systems</p>
-                                            <p class="text-slate-600 text-sm">SAP, Oracle</p>
-                                        </div>
-                                        <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                            <p class="font-semibold text-slate-800 mb-1">Evaluating</p>
-                                            <p class="text-slate-600 text-sm">Cloud-based supplier quality solutions like STEPQ</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="pain-points" class="content-section hidden space-y-6">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center">
-                                    <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-slate-900">Critical Pain Points</h3>
-                            </div>
-                            
-                            <div class="grid gap-4">
-                                <div class="pain-point bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="zap" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-red-800 mb-2">Bandwidth Crisis</h4>
-                                            <p class="text-red-700">Limited internal resources for global deployments, quality events, and supplier network expansion.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="pain-point bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="settings" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-red-800 mb-2">Harmonization Complexity</h4>
-                                            <p class="text-red-700">Struggling to standardize processes across multiple sites with legacy systems.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="pain-point bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="trending-up" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-red-800 mb-2">Demonstrating Value</h4>
-                                            <p class="text-red-700">Difficulty quantifying quality's financial impact and pressure to show ROI.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="pain-point bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="wifi-off" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-red-800 mb-2">Technology Gaps</h4>
-                                            <p class="text-red-700">Legacy systems lack real-time visibility and predictive insights.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="pain-point bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="user-x" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-red-800 mb-2">Personal Accountability</h4>
-                                            <p class="text-red-700">High stress from personal liability and 24/7 crisis responsibility.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="goals" class="content-section hidden space-y-8">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
-                                    <i data-lucide="target" class="w-6 h-6 text-green-600"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-slate-900">Goals & Success Metrics</h3>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-bold text-lg mb-4 flex items-center gap-2">
-                                    <i data-lucide="calendar" class="w-5 h-5 text-green-600"></i>
-                                    Short-Term Goals (Current Year)
-                                </h4>
-                                <div class="grid gap-4 mb-8">
-                                    <div class="goal-item bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-green-800 mb-2">Zero Critical Findings</h5>
-                                                <p class="text-green-700">Achieve zero critical audit findings across all facilities.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="goal-item bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="trending-down" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-green-800 mb-2">30% Reduction</h5>
-                                                <p class="text-green-700">Reduce supplier non-conformance incidents by 30%.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="goal-item bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="dollar-sign" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-green-800 mb-2">3:1 ROI</h5>
-                                                <p class="text-green-700">Demonstrate 3:1 ROI on quality technology investments.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-bold text-lg mb-4 flex items-center gap-2">
-                                    <i data-lucide="bar-chart" class="w-5 h-5 text-indigo-600"></i>
-                                    Key Performance Indicators
-                                </h4>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                        <div class="flex items-center gap-3 mb-2">
-                                            <i data-lucide="shield" class="w-4 h-4 text-indigo-600"></i>
-                                            <span class="font-semibold text-slate-800">Audit Readiness</span>
-                                        </div>
-                                        <p class="text-slate-600 text-sm">Compliance metrics & readiness scores</p>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                        <div class="flex items-center gap-3 mb-2">
-                                            <i data-lucide="alert-circle" class="w-4 h-4 text-red-600"></i>
-                                            <span class="font-semibold text-slate-800">Defect Rates</span>
-                                        </div>
-                                        <p class="text-slate-600 text-sm">Supplier defect rates (PPM)</p>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                        <div class="flex items-center gap-3 mb-2">
-                                            <i data-lucide="dollar-sign" class="w-4 h-4 text-green-600"></i>
-                                            <span class="font-semibold text-slate-800">Cost of Quality</span>
-                                        </div>
-                                        <p class="text-slate-600 text-sm">Cost of poor quality (COPQ)</p>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-xl border border-slate-200">
-                                        <div class="flex items-center gap-3 mb-2">
-                                            <i data-lucide="clock" class="w-4 h-4 text-amber-600"></i>
-                                            <span class="font-semibold text-slate-800">Resolution Time</span>
-                                        </div>
-                                        <p class="text-slate-600 text-sm">Incident resolution time & severity</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div id="buying" class="content-section hidden space-y-8">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
-                                    <i data-lucide="shopping-cart" class="w-6 h-6 text-blue-600"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-slate-900">Buying Process & Decision Factors</h3>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-bold text-lg mb-4 flex items-center gap-2">
-                                    <i data-lucide="key" class="w-5 h-5 text-blue-600"></i>
-                                    Key Buying Factors
-                                </h4>
-                                <div class="grid gap-4 mb-8">
-                                    <div class="buying-factor bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="shield-check" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-blue-800 mb-2">Compliance Assurance</h5>
-                                                <p class="text-blue-700">Solution must ensure regulatory readiness (FDA, EASA, ISO).</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="buying-factor bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="award" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-blue-800 mb-2">Proven Industry Expertise</h5>
-                                                <p class="text-blue-700">Vendor must show deep knowledge of regulated industries.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="buying-factor bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="link" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-blue-800 mb-2">Integration Capability</h5>
-                                                <p class="text-blue-700">Seamless connection with existing ERP/QMS is a must.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="buying-factor bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 rounded-r-2xl shadow-sm">
-                                        <div class="flex items-start gap-4">
-                                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <i data-lucide="trending-up" class="w-4 h-4 text-white"></i>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-blue-800 mb-2">Measurable ROI</h5>
-                                                <p class="text-blue-700">Clear financial impact must be demonstrated within 12-18 months.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-slate-50 to-slate-100 p-6 rounded-2xl border border-slate-200">
-                                <h4 class="font-bold text-lg mb-3 flex items-center gap-2">
-                                    <i data-lucide="users" class="w-5 h-5 text-slate-600"></i>
-                                    Decision Process
-                                </h4>
-                                <p class="text-slate-700 leading-relaxed">
-                                    Sarah leads a committee-based evaluation involving Quality, Supply Chain, IT, and Finance teams. The process typically spans 6-12 months and includes formal RFP/RFI procedures with pilot program requirements to validate solution effectiveness.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div id="objections" class="content-section hidden space-y-6">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center">
-                                    <i data-lucide="help-circle" class="w-6 h-6 text-amber-600"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-slate-900">Common Objections to Address</h3>
-                            </div>
-                            
-                            <div class="grid gap-4">
-                                <div class="objection bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="dollar-sign" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-amber-800 mb-2">Budget Concerns</h4>
-                                            <p class="text-amber-700">Total Cost of Ownership (TCO) benefits need to be clearly shown.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="objection bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="lock" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-amber-800 mb-2">Security & Compliance</h4>
-                                            <p class="text-amber-700">Must prove cloud solutions meet strict data security standards.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="objection bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="refresh-cw" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-amber-800 mb-2">Change Disruption</h4>
-                                            <p class="text-amber-700">Fear of disrupting established workflows and supplier relationships.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="objection bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="cloud-off" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-amber-800 mb-2">Managed Service Skepticism</h4>
-                                            <p class="text-amber-700">Uncertainty about relying on external teams for critical functions.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="objection bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm">
-                                    <div class="flex items-start gap-4">
-                                        <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="server" class="w-4 h-4 text-white"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-amber-800 mb-2">IT Integration</h4>
-                                            <p class="text-amber-700">IT department resistance to new platform integration and support.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <!-- Bottom Section: Sales Strategy & Journey -->
-        <footer class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-            <div class="sales-tips glass-effect p-8 rounded-3xl shadow-xl floating-card">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
-                        <i data-lucide="target" class="w-6 h-6 text-green-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-green-800">Sales Engagement Strategy</h3>
+        <!-- Main Content Section -->
+        <main class="flex-grow">
+            <div class="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+                        Core Strategy Documents
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Navigate to our key resources for market success.
+                    </p>
                 </div>
                 
-                <div class="space-y-4">
-                    <div class="tip bg-white p-5 rounded-2xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                        <div class="flex gap-4 items-start">
-                            <div class="tip-number flex-shrink-0 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Lead with Compliance & Risk</h4>
-                                <p class="text-slate-600 text-sm">Focus on audit readiness first, then cost savings.</p>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Navigation Grid -->
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     
-                    <div class="tip bg-white p-5 rounded-2xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                        <div class="flex gap-4 items-start">
-                            <div class="tip-number flex-shrink-0 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Engage Stakeholders Early</h4>
-                                <p class="text-slate-600 text-sm">Involve IT, Finance, and Operations from the start.</p>
-                            </div>
+                    <!-- Card 1: Ideal Customer Profile (ICP) -->
+                    <a href="./icp.html" class="group block p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                         </div>
-                    </div>
-                    
-                    <div class="tip bg-white p-5 rounded-2xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                        <div class="flex gap-4 items-start">
-                            <div class="tip-number flex-shrink-0 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Provide Peer References</h4>
-                                <p class="text-slate-600 text-sm">Share case studies from similar regulated industries.</p>
-                            </div>
+                        <h3 class="text-xl font-bold text-slate-900">Ideal Customer Profile</h3>
+                        <p class="mt-2 text-slate-600">A description of the organization that represents your most valuable customer type, based on factors like company size, industry, and specific business needs.</p>
+                    </a>
+
+                    <!-- Card 2: Buying Persona (BP) -->
+                    <a href="./bp.html" class="group block p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
-                    </div>
-                    
-                    <div class="tip bg-white p-5 rounded-2xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                        <div class="flex gap-4 items-start">
-                            <div class="tip-number flex-shrink-0 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Offer Pilot Programs</h4>
-                                <p class="text-slate-600 text-sm">Reduce perceived risk with flexible pilot options to validate ROI.</p>
-                            </div>
+                        <h3 class="text-xl font-bold text-slate-900">Buying Persona</h3>
+                        <p class="mt-2 text-slate-600">A detailed representation of the key decision-maker within your target organization, including their role, responsibilities, goals, and challenges.</p>
+                    </a>
+
+                    <!-- Card 3: Value Proposition (VP) -->
+                    <a href="./vp.html" class="group block p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
+                         <div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.4 2.4 0 0 0 0 3.4l7.6 7.6a2.4 2.4 0 0 0 3.4 0l7.6-7.6a2.4 2.4 0 0 0 0-3.4L13.7 2.7a2.4 2.4 0 0 0-3.4 0z"/></svg>
                         </div>
-                    </div>
-                    
-                    <div class="tip bg-white p-5 rounded-2xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                        <div class="flex gap-4 items-start">
-                            <div class="tip-number flex-shrink-0 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-1">Demonstrate Industry Knowledge</h4>
-                                <p class="text-slate-600 text-sm">Speak her language (FDA 21 CFR, ISO 13485, COPQ).</p>
-                            </div>
-                        </div>
-                    </div>
+                        <h3 class="text-xl font-bold text-slate-900">Value Proposition</h3>
+                        <p class="mt-2 text-slate-600">A clear statement that articulates the specific benefits your product or service delivers, how it solves customer problems, and what distinguishes it from alternative solutions.</p>
+                    </a>
+
                 </div>
             </div>
+        </main>
 
-            <div class="journey-map glass-effect p-8 rounded-3xl shadow-xl floating-card">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center">
-                        <i data-lucide="map" class="w-6 h-6 text-indigo-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900">Typical Buying Journey Timeline</h3>
-                </div>
-                
-                <div class="relative">
-                    <!-- The connecting line -->
-                    <div class="absolute left-6 top-12 bottom-0 w-0.5 bg-gradient-to-b from-indigo-200 to-indigo-400"></div>
-                    
-                    <div class="space-y-8">
-                        <!-- Stage 1 -->
-                        <div class="stage relative flex items-start gap-4">
-                            <div class="stage-circle z-10 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">1</div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-indigo-100 flex-1">
-                                <div class="flex items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-900">Awareness</h4>
-                                    <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">1-2 months</span>
-                                </div>
-                                <p class="text-sm text-slate-600">Identifies need via peer networks, conferences, and industry publications.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Stage 2 -->
-                        <div class="stage relative flex items-start gap-4">
-                            <div class="stage-circle z-10 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">2</div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-indigo-100 flex-1">
-                                <div class="flex items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-900">Research</h4>
-                                    <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">2-3 months</span>
-                                </div>
-                                <p class="text-sm text-slate-600">Detailed vendor evaluation, RFP process, and stakeholder alignment.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Stage 3 -->
-                        <div class="stage relative flex items-start gap-4">
-                            <div class="stage-circle z-10 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">3</div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-indigo-100 flex-1">
-                                <div class="flex items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-900">Evaluation</h4>
-                                    <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">3-4 months</span>
-                                </div>
-                                <p class="text-sm text-slate-600">Pilot programs, proof of concepts, and technical validation.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Stage 4 -->
-                        <div class="stage relative flex items-start gap-4">
-                            <div class="stage-circle z-10 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">4</div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-indigo-100 flex-1">
-                                <div class="flex items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-900">Decision</h4>
-                                    <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full font-medium">1-2 months</span>
-                                </div>
-                                <p class="text-sm text-slate-600">Executive approval, budget allocation, and contract negotiation.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Stage 5 -->
-                        <div class="stage relative flex items-start gap-4">
-                            <div class="stage-circle z-10 w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">5</div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-green-100 flex-1">
-                                <div class="flex items-center justify-between mb-2">
-                                    <h4 class="font-bold text-slate-900">Success</h4>
-                                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Ongoing</span>
-                                </div>
-                                <p class="text-sm text-slate-600">Implementation, quarterly business reviews, and expansion opportunities.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Footer Section -->
+        <footer class="bg-white/80 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500">
+                <p>&copy; 2025 Revenue Reimagined. All Rights Reserved.</p>
             </div>
         </footer>
-
     </div>
-    
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-        
-        // Set the active tab styles and show its content
-        function showTab(tabElement, tabName) {
-            // Deactivate all tabs
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-lg');
-                tab.classList.add('bg-slate-100', 'text-slate-600', 'hover:bg-slate-200');
-            });
-            
-            // Activate the clicked tab
-            tabElement.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg');
-            tabElement.classList.remove('bg-slate-100', 'text-slate-600', 'hover:bg-slate-200');
-            
-            // Hide all content sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.add('hidden');
-                section.classList.remove('active');
-            });
-            
-            // Show the selected content section
-            const activeSection = document.getElementById(tabName);
-            activeSection.classList.remove('hidden');
-            activeSection.classList.add('active');
-        }
 
-        // Initialize the first tab as active on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Apply Tailwind classes for tab buttons
-            document.querySelectorAll('.tab').forEach(tab => {
-                if (tab.classList.contains('active')) {
-                    tab.classList.add('bg-indigo-600', 'text-white', 'shadow-lg');
-                } else {
-                    tab.classList.add('bg-slate-100', 'text-slate-600', 'hover:bg-slate-200');
-                }
-                tab.classList.add('px-5', 'py-3', 'rounded-xl', 'font-semibold', 'text-sm', 'transition-all', 'duration-300', 'flex', 'items-center', 'gap-2');
-            });
-        });
-    </script>
 </body>
 </html>

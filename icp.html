@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal Customer Profile - SQA Services</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    
+    <!-- Babel for JSX compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* gray-50 */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // --- Icon Components (recreated as simple SVGs) ---
+        const Building2 = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>;
+        const Globe = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;
+        const TrendingUp = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>;
+        const DollarSign = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>;
+        const Users = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
+        const Target = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12"cy="12" r="2"/></svg>;
+        const CheckCircle = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>;
+        const AlertCircle = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>;
+        const BarChart3 = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>;
+        const Briefcase = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>;
+        const Calculator = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="10" x2="16" y2="14"/><path d="M16 10h-4a2 2 0 0 0-2 2v4"/><path d="M8 10h4"/><path d="M8 14h4"/></svg>;
+        
+        // --- React Component from your icp.js file ---
+        const ICPOverviewDashboard = () => {
+            const [activeSection, setActiveSection] = React.useState('demographics');
+            const [checkedItems, setCheckedItems] = React.useState({});
+
+            const industries = [
+                { name: 'Aerospace & Defense', priority: 'Primary', color: 'bg-blue-500' },
+                { name: 'Medical Devices', priority: 'Primary', color: 'bg-green-500' },
+                { name: 'Life Sciences', priority: 'Primary', color: 'bg-pink-500' },
+                { name: 'Automotive', priority: 'Secondary', color: 'bg-gray-400' },
+                { name: 'Hi-Tech Electronics', priority: 'Secondary', color: 'bg-gray-400' },
+                { name: 'Industrial Manufacturing', priority: 'Secondary', color: 'bg-gray-400' },
+            ];
+
+            const keyMetrics = [
+                { label: 'Revenue Range', value: '$100M - $10B', optimal: '$500M - $5B', icon: DollarSign },
+                { label: 'Employee Count', value: '1K - 50K', optimal: '5K - 20K', icon: Users },
+                { label: 'Supplier Count', value: '500 - 10K', optimal: '1K - 5K', icon: Briefcase },
+                { label: 'Geographic Reach', value: '10+ Countries', optimal: '50+ Countries', icon: Globe },
+            ];
+            
+            const allScoringItems = [
+                { text: 'Annual revenue $500M - $5B', points: 2 },
+                { text: 'Global operations in 20+ countries', points: 2 },
+                { text: 'Recent regulatory issues', points: 2 },
+                { text: '1,000+ suppliers', points: 2 },
+                { text: 'Centralized decision-making', points: 2 },
+                { text: 'Operations in 10-20 countries', points: 1 },
+                { text: 'Digital transformation initiative', points: 1 },
+                { text: '500-1,000 suppliers', points: 1 },
+                { text: 'Cost reduction pressure', points: 1 },
+                { text: 'Revenue under $100M', points: -1 },
+                { text: 'Fewer than 500 suppliers', points: -1 },
+                { text: 'Single country operations', points: -1 },
+                { text: 'Low regulatory requirements', points: -1 }
+            ];
+
+            const scoringIndicators = [
+                { category: 'High-Value', score: '+2', items: allScoringItems.filter(i => i.points === 2).map(i => i.text) },
+                { category: 'Positive', score: '+1', items: allScoringItems.filter(i => i.points === 1).map(i => i.text) },
+                { category: 'Negative', score: '-1', items: allScoringItems.filter(i => i.points === -1).map(i => i.text) },
+            ];
+
+            const buyingTriggers = [
+                { type: 'Regulatory', icon: AlertCircle, triggers: ['FDA warning letters', 'Audit findings', 'New regulations'] },
+                { type: 'Business', icon: TrendingUp, triggers: ['M&A activity', 'Geographic expansion', 'Product launches'] },
+                { type: 'Operational', icon: BarChart3, triggers: ['Quality incidents', 'Scaling challenges', 'Cost reduction'] },
+            ];
+
+            const primaryIndustries = industries.filter(i => i.priority === 'Primary');
+            const secondaryIndustries = industries.filter(i => i.priority === 'Secondary');
+            
+            const handleCheckboxChange = (event) => {
+                setCheckedItems({
+                ...checkedItems,
+                [event.target.name]: event.target.checked,
+                });
+            };
+
+            const totalScore = allScoringItems.reduce((total, item) => {
+                if (checkedItems[item.text]) {
+                return total + item.points;
+                }
+                return total;
+            }, 0);
+            
+            const getTier = (score) => {
+                if (score >= 10) return { name: 'Tier 1 - Prime Target', color: 'bg-green-500' };
+                if (score >= 6) return { name: 'Tier 2 - Strong Fit', color: 'bg-blue-500' };
+                if (score >= 3) return { name: 'Tier 3 - Potential Fit', color: 'bg-yellow-500' };
+                return { name: 'Not Aligned', color: 'bg-red-500' };
+            };
+
+            const currentTier = getTier(totalScore);
+
+
+            return (
+                <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+                    <a href="./index.html" className="mb-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        &larr; Back to Hub
+                    </a>
+                    <div className="my-6">
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2">SQA Services - Ideal Customer Profile Overview</h1>
+                        <p className="text-gray-600">Large-scale manufacturers in regulated industries with complex global supply chains</p>
+                    </div>
+
+                    <div className="flex space-x-1 mb-6 bg-white rounded-lg p-1 shadow-sm border">
+                        {['demographics', 'characteristics', 'triggers', 'scoring', 'calculator'].map((section) => (
+                        <button
+                            key={section}
+                            onClick={() => setActiveSection(section)}
+                            className={`flex-1 py-2 px-4 rounded-md transition-all duration-200 ${
+                            activeSection === section 
+                                ? 'bg-blue-600 text-white shadow' 
+                                : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                        >
+                            {section.charAt(0).toUpperCase() + section.slice(1)}
+                        </button>
+                        ))}
+                    </div>
+
+                    {activeSection === 'demographics' && (
+                        <div className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {keyMetrics.map((metric, idx) => {
+                                const Icon = metric.icon;
+                                return (
+                                    <div key={idx} className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                                    <div className="flex items-center mb-3">
+                                        <Icon className="w-5 h-5 text-blue-600 mr-2" />
+                                        <h3 className="font-semibold text-gray-700">{metric.label}</h3>
+                                    </div>
+                                    <p className="text-xl font-bold text-gray-900">{metric.value}</p>
+                                    <p className="text-sm text-green-600 mt-1">Optimal: {metric.optimal}</p>
+                                    </div>
+                                );
+                                })}
+                            </div>
+
+                            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                                <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                    <Target className="w-5 h-5 mr-2 text-blue-600" />
+                                    Target Industries
+                                </h3>
+                                
+                                <div className="mb-6">
+                                <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Primary Target Markets</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    {primaryIndustries.map((industry, idx) => (
+                                    <div key={idx} className="border-2 border-blue-200 bg-blue-50 rounded-lg p-4 hover:shadow-md transition-shadow">
+                                        <div className="flex items-center space-x-3 mb-2">
+                                        <div className={`w-4 h-4 rounded-full ${industry.color}`}></div>
+                                        <span className="font-medium text-gray-800">{industry.name}</span>
+                                        </div>
+                                        <div className="text-xs text-gray-600">High regulatory requirements • Complex supply chains</div>
+                                    </div>
+                                    ))}
+                                </div>
+                                </div>
+
+                                <div>
+                                <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">Secondary Target Markets</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                    {secondaryIndustries.map((industry, idx) => (
+                                    <div key={idx} className="border border-gray-200 bg-gray-50 rounded-lg p-3">
+                                        <div className="flex items-center space-x-3">
+                                        <div className={`w-3 h-3 rounded-full ${industry.color}`}></div>
+                                        <span className="text-gray-700">{industry.name}</span>
+                                        </div>
+                                    </div>
+                                    ))}
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === 'characteristics' && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <Building2 className="w-5 h-5 mr-2 text-blue-600" />
+                            Organizational Profile
+                            </h3>
+                            <ul className="space-y-3">
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">Centralized decision-making structure</span></li>
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">Established QA/Quality department</span></li>
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">Strategic sourcing with SRM</span></li>
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">Progressive technology adoption</span></li>
+                            </ul>
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <DollarSign className="w-5 h-5 mr-2 text-blue-600" />
+                            Financial Requirements
+                            </h3>
+                            <ul className="space-y-3">
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">Minimum $100K annual budget for quality</span></li>
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">Preference for annualized contracts</span></li>
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">High profit margins</span></li>
+                            <li className="flex items-start"><CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" /> <span className="text-gray-700">5%+ annual growth rate</span></li>
+                            </ul>
+                        </div>
+                        </div>
+                    )}
+
+                    {activeSection === 'triggers' && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {buyingTriggers.map((category, idx) => {
+                            const Icon = category.icon;
+                            return (
+                            <div key={idx} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                                <div className="flex items-center mb-4"><Icon className="w-5 h-5 text-blue-600 mr-2" /><h3 className="text-lg font-semibold text-gray-800">{category.type} Triggers</h3></div>
+                                <ul className="space-y-2">
+                                {category.triggers.map((trigger, tidx) => (
+                                    <li key={tidx} className="text-gray-700 text-sm pl-4 relative"><span className="absolute left-0 top-1.5 w-1.5 h-1.5 bg-blue-400 rounded-full"></span>{trigger}</li>
+                                ))}
+                                </ul>
+                            </div>
+                            );
+                        })}
+                        </div>
+                    )}
+
+                    {activeSection === 'scoring' && (
+                        <div className="space-y-6 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4">ICP Scoring Framework</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {scoringIndicators.map((category, idx) => (
+                                <div key={idx}>
+                                <div className="flex items-center justify-between mb-3">
+                                    <h4 className="font-medium text-gray-700">{category.category}</h4>
+                                    <span className={`text-sm font-bold px-2 py-1 rounded ${ category.score === '+2' ? 'bg-green-100 text-green-700' : category.score === '+1' ? 'bg-blue-100 text-blue-700' : 'bg-red-100 text-red-700' }`}>
+                                    {category.score} points
+                                    </span>
+                                </div>
+                                <ul className="space-y-1">
+                                    {category.items.map((item, iidx) => (<li key={iidx} className="text-sm text-gray-600">• {item}</li>))}
+                                </ul>
+                                </div>
+                            ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === 'calculator' && (
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <div className="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Interactive Scoring Calculator</h3>
+                                <div className="space-y-4">
+                                    {allScoringItems.map((item, idx) => (
+                                        <label key={idx} className="flex items-center p-3 rounded-md hover:bg-gray-50 transition-colors">
+                                            <input
+                                                type="checkbox"
+                                                name={item.text}
+                                                checked={checkedItems[item.text] || false}
+                                                onChange={handleCheckboxChange}
+                                                className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                            />
+                                            <span className="ml-3 text-gray-700 flex-grow">{item.text}</span>
+                                            <span className={`font-bold ml-4 ${item.points > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                                {item.points > 0 ? `+${item.points}` : item.points}
+                                            </span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="lg:col-span-1">
+                                <div className="sticky top-6 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">Prospect Score</h3>
+                                    <div className="text-6xl font-bold text-center text-blue-600 mb-4">{totalScore}</div>
+                                    <div className={`p-4 rounded-lg text-white text-center ${currentTier.color}`}>
+                                        <div className="font-bold text-xl">{currentTier.name}</div>
+                                    </div>
+                                    <button 
+                                        onClick={() => setCheckedItems({})}
+                                        className="w-full mt-4 py-2 px-4 rounded-md text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 transition-colors"
+                                    >
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                </div>
+            );
+        };
+
+        ReactDOM.render(<ICPOverviewDashboard />, document.getElementById('root'));
+
+    </script>
+
+</body>
+</html>
