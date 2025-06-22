@@ -3,104 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTM Foundations</title>
-    <meta name="description" content="Central hub for accessing Go-to-Market (GTM) foundation documents, including Ideal Customer Profile (ICP), Buying Persona (BP), and Value Proposition (VP).">
+    <title>GTM Foundations Hub - SQA Services</title>
+    <meta name="description" content="Professional Go-to-Market foundation resources for the SQA Services sales team.">
     
-    <!-- Tailwind CSS for styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Use Inter as the default font */
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Custom styles for a subtle background pattern */
-        .pattern-bg {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#dbeafe 1px, transparent 1px);
-            background-size: 1.5rem 1.5rem;
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .quick-access {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
         }
     </style>
 </head>
-<body class="pattern-bg text-slate-800">
+<body class="bg-gray-50">
 
-    <div class="flex flex-col min-h-screen">
-        <!-- Header Section -->
-        <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-6">
                 <div class="flex items-center space-x-4">
-                    <!-- Corrected image source to an embedded Base64 string -->
-                    <img 
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADcCAMAAAAshD+zAAAAQlBMVEX////AAD/U1P/qan/f3//vr7/aGj/ycn/tLT/LS3/o6P/WVn/ICD/RUX/dXX/paX/n5//4+P/uro/Pz//w8P/ISGhSkQJAAAAAXRSTlMAQObYZgAAA+RJREFUeAHt3UlyG0cUANCxIAgIywuI/v+/7SSQ9gB1FVRdVaWaO+ecmxSnC92pSV3/k+T5/PM8L+v1en0d9+l8/j3f+7qv63q9Xv9a9+/Lff/9ve+P+L7d7/e7t+/P/7v/X4fn8+f3/X4/n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fzt+b+/n+8T+fzz/e83+/3+/2+v//b/d+f5+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fzt+f3+31/fn7+7/d7fn5+P5/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8/vbc3//8/v39/e/3++fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+b/5/w9/v7+/vz//fv/3+3s+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+nz/b/P359/v7++/3+/v8/Pz9/T6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5/P8P3G1kYh86B4gAAAAASUVORK5CYII=" 
-                        alt="SQA Services Logo" 
-                        class="h-12 w-auto"
-                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/1e40af/ffffff?text=SQA';">
+                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
                     <div>
-                        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">GTM Foundations</h1>
-                        <p class="mt-1 text-sm text-slate-600">Your central access point for Go-to-Market strategies.</p>
+                        <h1 class="text-2xl font-bold">SQA Services</h1>
+                        <p class="text-white/80 text-sm">Go-to-Market Foundations</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="text-right">
+                        <div class="text-sm text-white/80">Sales Team Portal</div>
+                        <div class="text-lg font-semibold">Q1 2025</div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Main Content Section -->
-        <main class="flex-grow">
-            <div class="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                     <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-                        Core Strategy Documents
-                    </h2>
-                    <p class="mt-4 text-lg text-slate-600">
-                        Navigate to our key resources for market success.
-                    </p>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                Strategic Sales Resources
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Access comprehensive market intelligence, customer insights, and value propositions to accelerate your sales success.
+            </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="stats-card text-white p-6 rounded-2xl">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-3xl font-bold">3</div>
+                        <div class="text-white/90">Core Documents</div>
+                    </div>
+                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-access text-white p-6 rounded-2xl">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-3xl font-bold">100%</div>
+                        <div class="text-white/90">Ready to Use</div>
+                    </div>
+                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resource-card text-white p-6 rounded-2xl">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-3xl font-bold">24/7</div>
+                        <div class="text-white/90">Access Available</div>
+                    </div>
+                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Resource Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            
+            <!-- ICP Card -->
+            <a href="./icp.html" class="card-hover group">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="12" r="6"/>
+                                    <circle cx="12" cy="12" r="2"/>
+                                </svg>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm opacity-90">Target Market</div>
+                                <div class="text-2xl font-bold">ICP</div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Ideal Customer Profile</h3>
+                        <p class="text-blue-100 text-sm">Interactive scoring system and market segmentation</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                Company demographics & characteristics
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                Buying triggers & decision factors
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                Interactive prospect scoring tool
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium text-gray-500">Primary Industries</span>
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- BP Card -->
+            <a href="./bp.html" class="card-hover group">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 p-6 text-white">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm opacity-90">Decision Maker</div>
+                                <div class="text-2xl font-bold">BP</div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Buying Persona</h3>
+                        <p class="text-green-100 text-sm">Sarah Chen - VP of Supplier Quality profile</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                Role, responsibilities & daily challenges
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                Goals, KPIs & success metrics
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                Objections & buying process insights
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium text-gray-500">Experience Level</span>
+                            <div class="flex items-center space-x-1">
+                                <div class="text-sm font-bold text-green-600">18 Years</div>
+                                <div class="text-xs text-gray-500">Senior Executive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- VP Card -->
+            <a href="./vp.html" class="card-hover group">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M2.7 10.3a2.4 2.4 0 0 0 0 3.4l7.6 7.6a2.4 2.4 0 0 0 3.4 0l7.6-7.6a2.4 2.4 0 0 0 0-3.4L13.7 2.7a2.4 2.4 0 0 0-3.4 0z"/>
+                                </svg>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm opacity-90">Differentiation</div>
+                                <div class="text-2xl font-bold">VP</div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Value Proposition</h3>
+                        <p class="text-purple-100 text-sm">Competitive advantages & unique benefits</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                Core value statements & benefits
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                Competitive differentiation points
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                ROI & business impact messaging
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium text-gray-500">Key Benefits</span>
+                            <div class="text-sm font-bold text-purple-600">3:1 ROI</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Quick Reference Section -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Quick Reference Guide</h3>
+                <div class="text-sm text-gray-500">Sales Team Essentials</div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Target Revenue</h4>
+                    <p class="text-sm text-gray-600">$500M - $5B</p>
                 </div>
                 
-                <!-- Navigation Grid -->
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    
-                    <!-- Card 1: Ideal Customer Profile (ICP) -->
-                    <a href="./icp.html" class="group block p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900">Ideal Customer Profile</h3>
-                        <p class="mt-2 text-slate-600">A description of the organization that represents your most valuable customer type, based on factors like company size, industry, and specific business needs.</p>
-                    </a>
-
-                    <!-- Card 2: Buying Persona (BP) -->
-                    <a href="./bp.html" class="group block p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900">Buying Persona</h3>
-                        <p class="mt-2 text-slate-600">A detailed representation of the key decision-maker within your target organization, including their role, responsibilities, goals, and challenges.</p>
-                    </a>
-
-                    <!-- Card 3: Value Proposition (VP) -->
-                    <a href="./vp.html" class="group block p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
-                         <div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 mb-4">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.4 2.4 0 0 0 0 3.4l7.6 7.6a2.4 2.4 0 0 0 3.4 0l7.6-7.6a2.4 2.4 0 0 0 0-3.4L13.7 2.7a2.4 2.4 0 0 0-3.4 0z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900">Value Proposition</h3>
-                        <p class="mt-2 text-slate-600">A clear statement that articulates the specific benefits your product or service delivers, how it solves customer problems, and what distinguishes it from alternative solutions.</p>
-                    </a>
-
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Key Contact</h4>
+                    <p class="text-sm text-gray-600">VP Quality/Supply Chain</p>
+                </div>
+                
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Sales Cycle</h4>
+                    <p class="text-sm text-gray-600">6-12 months</p>
+                </div>
+                
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Primary Trigger</h4>
+                    <p class="text-sm text-gray-600">Regulatory Issues</p>
                 </div>
             </div>
-        </main>
+        </div>
 
-        <!-- Footer Section -->
-        <footer class="bg-white/80 border-t border-slate-200">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500">
-                <p>&copy; 2025 Revenue Reimagined. All Rights Reserved.</p>
+        <!-- Usage Tips -->
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">How to Use These Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-indigo-600 font-bold text-sm">1</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Qualify Prospects</h4>
+                        <p class="text-sm text-gray-600">Use the ICP scoring tool to evaluate and prioritize your prospects based on fit criteria.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-indigo-600 font-bold text-sm">2</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Understand Buyers</h4>
+                        <p class="text-sm text-gray-600">Reference the buying persona to tailor your approach and messaging to key decision makers.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-indigo-600 font-bold text-sm">3</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Articulate Value</h4>
+                        <p class="text-sm text-gray-600">Leverage value proposition messaging to clearly communicate benefits and differentiation.</p>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium text-gray-900">SQA Services</div>
+                        <div class="text-xs text-gray-500">Revenue Reimagined © 2025</div>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-500">
+                    Last updated: January 2025
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
